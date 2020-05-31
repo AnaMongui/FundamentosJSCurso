@@ -13,7 +13,7 @@ var luis = {
 var salome = {
     nombre: 'Salome',
     apellido: 'Gonzalez',
-    altura: 82
+    altura: 1.00
 }
 var nanis = {
     nombre: 'Nanis',
@@ -33,9 +33,17 @@ var fabian = {
     altura: 1.76
 }
 
+const esAlta = ({ altura }) => persona.altura < 1.6
+
 var personas = [ana, luis, salome, nanis, vero, fabian]
 
-for (var i = 0; i< personas.length; i++){
-    var persona = personas[i]
-    console.log(`${persona.nombre} mide ${persona.altura}mt`)
-}
+var personasAltas = personas.filter(function (persona) {
+    return persona.altura < 1.6
+})
+    
+
+console.log(personasAltas)
+
+
+
+
