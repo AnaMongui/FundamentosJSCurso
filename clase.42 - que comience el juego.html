@@ -105,10 +105,18 @@
             constructor() {
                 this.inicializar()
                 this.generarSecuencia()
+                this,siguienteNivel()
             }
 
             inicializar() {
                 btnEmpezar.classList.add('hide')
+                this.nivel = 1
+                this.colores = {
+                    celeste,
+                    violeta,
+                    naranja,
+                    verde
+                }
             }
 
             generarSecuencia(){
@@ -117,6 +125,40 @@
 
         }
 
+        siguienteNivel(){
+            this.ilumunarSecuencia();
+        }
+
+        tranformarNumeroAColor(numero)
+            switch(numero){
+                case 0:
+                    return 'celeste'
+                case 1:
+                    return 'violeta'
+                case 2:
+                    return 'naranja'
+                case 3:
+                    return 'verde'            
+            }
+        
+
+        ilumunarSecuencia(){
+            for(var i = 0; i < this.nivel; i++){
+                var color = this.tranformarNumeroAColor(this.secuencia[i])
+                this.iluminarColor(color)
+            }
+        }
+
+
+        iluminarColor(){
+            this.colores[color].classList.add('light')
+            setTimeout(() =>this,apagarColor(color),350)
+        }
+
+        apagarColor(){
+            this.colores[color].classList.remove('light')
+        }
+        
         function empezarJuego() {
             var juego = new Juego()
         }
